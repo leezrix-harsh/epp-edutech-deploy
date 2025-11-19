@@ -19,11 +19,6 @@ const nextConfig = {
   assetPrefix: '.',
   outputFileTracingRoot: path.join(__dirname, './'),
   
-  // Disable Turbopack in development
-  experimental: {
-    forceSwcTransforms: true,
-  },
-  
   // Webpack configuration
   webpack: (config) => {
     return config;
