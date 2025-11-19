@@ -6,15 +6,8 @@
       "use": "@vercel/next"
     }
   ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/$1",
-      "status": 200
-    }
-  ],
   "rewrites": [
-    { "source": "/Home", "destination": "/Home" },
+    { "source": "/", "destination": "/Home" },
     { "source": "/AITutor", "destination": "/AITutor" },
     { "source": "/Chat", "destination": "/Chat" },
     { "source": "/Materials", "destination": "/Materials" }
