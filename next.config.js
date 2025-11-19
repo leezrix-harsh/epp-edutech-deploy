@@ -1,40 +1,35 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Disable React strict mode to avoid double rendering in development
-  reactStrictMode: false,
+  reactStrictMode: true,
   
-  // Configure images
-  images: {
-    domains: [],
-  },
-
-  // Enable TypeScript type checking in development
-  typescript: {
-    ignoreBuildErrors: false,
-  },
-
-  // Configure webpack
-  webpack: (config, { isServer }) => {
-    // Add custom webpack configurations here if needed
-    return config;
-  },
-
-  // Configure page extensions
-  pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
-
-  // Explicitly disable Turbopack for now to avoid build issues
+  // Disable Turbopack
   experimental: {
     turbo: false
   },
   
-  // Disable Turbopack for this build
-  webpack5: true,
+  // Configure page extensions
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
   
-  // Environment variables
-  env: {
-    // Add your environment variables here
-    // Example: API_URL: process.env.API_URL,
+  // Configure images
+  images: {
+    unoptimized: true, // Required for static exports
   },
+  
+  // Enable static exports
+  output: 'export',
+  
+  // Add a trailing slash to all paths
+  trailingSlash: true,
+  
+  // Webpack configuration
+  webpack: (config, { isServer }) => {
+    // Important: return the modified config
+    return config;
+  },
+  
+  // Disable React's strict mode for production builds
+  // to prevent double-rendering in development
+  reactStrictMode: process.env.NODE_ENV !== 'production',
 }
 
 // Conditionally export the config

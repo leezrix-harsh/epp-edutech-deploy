@@ -9,7 +9,14 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/"
+      "dest": "/$1",
+      "status": 200
     }
+  ],
+  "rewrites": [
+    { "source": "/Home", "destination": "/Home" },
+    { "source": "/AITutor", "destination": "/AITutor" },
+    { "source": "/Chat", "destination": "/Chat" },
+    { "source": "/Materials", "destination": "/Materials" }
   ]
 }
