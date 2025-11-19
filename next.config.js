@@ -1,36 +1,33 @@
 /** @type {import('next').NextConfig} */
+const path = require('path');
+
+// Disable Turbopack by setting the environment variable
+process.env.TURBOPACK = '0';
+
 const nextConfig = {
-  reactStrictMode: true,
-  
-  // Disable Turbopack
-  experimental: {
-    turbo: false
-  },
-  
-  // Configure page extensions
-  pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
-  
-  // Configure images
-  images: {
-    unoptimized: true, // Required for static exports
-  },
-  
-  // Enable static exports
+  // Basic configuration
+  reactStrictMode: false,
   output: 'export',
   
-  // Add a trailing slash to all paths
-  trailingSlash: true,
-  
-  // Webpack configuration
-  webpack: (config, { isServer }) => {
-    // Important: return the modified config
-    return config;
+  // Disable image optimization for static export
+  images: {
+    unoptimized: true,
   },
   
-  // Disable React's strict mode for production builds
-  // to prevent double-rendering in development
-  reactStrictMode: process.env.NODE_ENV !== 'production',
+  // Path configuration
+  basePath: '',
+  assetPrefix: '.',
+  outputFileTracingRoot: path.join(__dirname, './'),
+  
+  // Disable Turbopack in development
+  experimental: {
+    forceSwcTransforms: true,
+  },
+  
+  // Webpack configuration
+  webpack: (config) => {
+    return config;
+  },
 }
 
-// Conditionally export the config
-module.exports = nextConfig
+module.exports = nextConfig;
