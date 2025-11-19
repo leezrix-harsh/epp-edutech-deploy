@@ -1,19 +1,21 @@
 import { useState } from 'react';
 // Icons from lucide-react
-import { BookOpen } from 'lucide-react/dist/esm/icons/book-open';
-import { Sparkles } from 'lucide-react/dist/esm/icons/sparkles';
-import { Users } from 'lucide-react/dist/esm/icons/users';
-import { MessageCircle } from 'lucide-react/dist/esm/icons/message-circle';
-import { Clock } from 'lucide-react/dist/esm/icons/clock';
-import { Award } from 'lucide-react/dist/esm/icons/award';
-import { Brain } from 'lucide-react/dist/esm/icons/brain';
-import { Star } from 'lucide-react/dist/esm/icons/star';
-import { Play } from 'lucide-react/dist/esm/icons/play';
-import { CheckCircle } from 'lucide-react/dist/esm/icons/check-circle';
-import { User } from 'lucide-react/dist/esm/icons/user';
-import { Send } from 'lucide-react/dist/esm/icons/send';
-import { Menu } from 'lucide-react/dist/esm/icons/menu';
-import { X } from 'lucide-react/dist/esm/icons/x';
+import {
+  Award,
+  BookOpen,
+  Brain,
+  CheckCircle,
+  Clock,
+  Menu,
+  MessageCircle,
+  Play,
+  Send,
+  Sparkles,
+  Star,
+  User,
+  Users,
+  X,
+} from 'lucide-react';
 import Link from 'next/link';
 
 export default function Home() {
